@@ -42,7 +42,7 @@ for i in range(start,end):
 
         #gets json object from google using distance_matrix
         route = gmaps.distance_matrix(origins = [waypoint2],
-                                    destinations = [waypoint1],
+									destinations = [waypoint1],
                                     mode="walking",
                                     language="English",
                                     units="imperial")
@@ -51,15 +51,15 @@ for i in range(start,end):
         distance = route["rows"][0]["elements"][0]["distance"]["value"]
         duration = route["rows"][0]["elements"][0]["duration"]["value"]
 
-        #set dictionary key to subway name/coordinates and school name/coordinates and value to list of distance and duration
-        final_dict[subway.get_value(i, 'NAME'),subway.get_value(i, 'Y'),subway.get_value(i, 'X'),schools.get_value(j, 'institution name'),schools.get_value(j, 'Latitude'),schools.get_value(j, 'Longitude') ] = [distance,duration]
+	#set dictionary key to subway name/coordinates and school name/coordinates and value to list of distance and duration
+	final_dict[subway.get_value(i, 'NAME'),subway.get_value(i, 'Y'),subway.get_value(i, 'X'),schools.get_value(j, 'institution name'),schools.get_value(j, 'Latitude'),schools.get_value(j, 'Longitude') ] = [distance,duration]
 
 #look for file to save to
-filepath = path.dirname(path.realpath(argv[0]))
+filepath = path.dirname(path.realpath(argv[0])) + '\\' + filename
 
 #if file exists, append dictionary to file
 if path.exists(filepath) and path.isfile(filepath):
-    with open(filename, 'a') as csvfile:
+    with open(filename, 'ab') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         for i in final_dict.keys():
             spamwriter.writerow([i[0],i[1],i[2],i[3],i[4],i[5],final_dict[i][0], final_dict[i][1]])
