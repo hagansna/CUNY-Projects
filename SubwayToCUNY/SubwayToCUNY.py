@@ -1,5 +1,5 @@
 """
-Finds the walking distance and duration from every* subway station in NYC to every undergraduate CUNY school
+Finds the transit distance and duration from every* subway station in NYC to every undergraduate CUNY school
 and saves information to csv file.
 
 *broken into three subsections due to API limitations (2,500 elements per day)
