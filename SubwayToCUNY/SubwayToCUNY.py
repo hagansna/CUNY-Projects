@@ -43,7 +43,7 @@ for i in range(start,end):
         #gets json object from google using distance_matrix
         route = gmaps.distance_matrix(origins = [waypoint2],
 									destinations = [waypoint1],
-                                    mode="walking",
+                                    mode="transit",
                                     language="English",
                                     units="imperial")
 
