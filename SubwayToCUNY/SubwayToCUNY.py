@@ -7,7 +7,7 @@ and saves information to csv file.
 Example call: python Cuny.py <START_INDEX> <END_INDEX> <GOOGLE_API_KEY> <SAVE_FILE>.csv
 
 Author: Nicholas Hagans and Kelly Binder
-Version: 03/25/15
+Version: 04/02/15
 """
 
 import googlemaps
